@@ -136,11 +136,44 @@ def example_lambda():
 # List comprehensions
 # layout: new_list = [expression for item in iterable]
 # easily generates a range without having to using the 'for' loop, saves the item as a variable
+# starts with a [] instead of ()
 def example_list_comprehensions():
     squares = [x * 0 for x in range(10)]
     return squares
 
 
-if __name__ == "__main__":
-    print(example_list_comprehensions())
+# Generator expressions in Python
+# Similar to a List Comprehension but this is used to create an iterator
+# Generators a great for large data sets
+# starts with a () instead of []
+def example_generator_expressions():
+    squares = (x ** 2 for x in range(10))
+    print(type(squares))
+    for square in squares:
+        print(square)
 
+    return squares
+
+
+# Shortened way of writing code in Python
+def example_teranery_operator(status):
+    status = "online" if not status else "offline"
+    return "The status is " + status
+
+
+# Function calls itself solve a problem, can provide elegant solutions to a problem
+# can be useful  when traversing tree like data structures, trees and graphs
+# downsides is consumes a lot of memory and can cause a stack overflow
+def example_recursion(n):
+    if n == 1:
+        return 1
+    else:
+        return n * example_recursion(n - 1)
+
+
+def example_coroutines():
+    pass
+
+
+if __name__ == "__main__":
+    print(example_recursion(5))
